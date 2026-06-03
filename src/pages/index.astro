@@ -1,0 +1,29 @@
+---
+import BaseLayout   from '../layouts/BaseLayout.astro';
+import Header       from '../components/Header.astro';
+import Hero         from '../components/Hero.astro';
+import Sluzby       from '../components/Sluzby.astro';
+import Technika     from '../components/Technika.astro';
+import Galerie      from '../components/Galerie.astro';
+import Reference    from '../components/Reference.astro';
+import Pusobnost    from '../components/Pusobnost.astro';
+import Kontakt      from '../components/Kontakt.astro';
+import Footer       from '../components/Footer.astro';
+---
+
+<BaseLayout
+  title="Profi Jeřáby s.r.o. | Autodoprava, Jeřábnické a Zemní práce"
+  description="Profesionální autodoprava, jeřábnické práce a zemní práce. Moderní technika, zkušený tým. Působíme v celé ČR. Kontaktujte nás pro nezávaznou nabídku."
+>
+  <Header />
+  <main>
+    <Hero />
+    <Sluzby />
+    <Technika />
+    <Galerie />
+    <Reference />
+    <Pusobnost />
+    <Kontakt />
+  </main>
+  <Footer />
+</BaseLayout>

@@ -1,0 +1,302 @@
+---
+---
+
+<section id="kontakt" class="kontakt">
+  <div class="container">
+    <div class="section-header">
+      <p class="section-label">Napište nebo zavolejte</p>
+      <h2 class="section-title">KONTAKTUJTE <span>NÁS</span></h2>
+    </div>
+
+    <div class="inner">
+      <!-- Levá strana: info + mapa -->
+      <div class="info-col">
+
+        <a href="tel:+420000000000" class="tel-card">
+          <div class="tel-icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1-9.4 0-17-7.6-17-17 0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z"/>
+            </svg>
+          </div>
+          <div>
+            <span class="info-lbl">Zavolejte nám</span>
+            <strong class="tel-num">+420 000 000 000</strong>
+          </div>
+        </a>
+
+        <div class="info-list">
+          <div class="info-row">
+            <svg width="19" height="19" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+            </svg>
+            <div>
+              <span class="info-lbl">E-mail</span>
+              <a href="mailto:info@profijeraby.cz" class="info-val link">info@profijeraby.cz</a>
+            </div>
+          </div>
+
+          <div class="info-row">
+            <svg width="19" height="19" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 110-5 2.5 2.5 0 010 5z"/>
+            </svg>
+            <div>
+              <span class="info-lbl">Sídlo firmy</span>
+              <span class="info-val">Doplňte adresu, Česká republika</span>
+            </div>
+          </div>
+
+          <div class="info-row">
+            <svg width="19" height="19" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zm.01 18c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67V7z"/>
+            </svg>
+            <div>
+              <span class="info-lbl">Pracovní doba</span>
+              <span class="info-val">Po–Pá 7:00–17:00 · Pohotovost nonstop</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="map-wrap">
+          <!--
+            Mapa sídla firmy – doplňte bbox souřadnice po přidání adresy.
+          -->
+          <iframe
+            src="https://www.openstreetmap.org/export/embed.html?bbox=14.2%2C49.8%2C15.0%2C50.2&layer=mapnik"
+            title="Mapa sídla firmy Profi Jeřáby s.r.o."
+            loading="lazy"
+            allowfullscreen
+          ></iframe>
+        </div>
+      </div>
+
+      <!-- Pravá strana: formulář -->
+      <div class="form-col">
+        <h3 class="form-title">Nezávazná poptávka</h3>
+        <p class="form-sub">Odpovíme do 24 hodin.</p>
+
+        <!--
+          Formulář je připraven jako HTML — pro skutečné odesílání
+          napojte na backend / e-mailovou službu (Formspree, Netlify Forms…)
+        -->
+        <form class="form" action="#" method="post" novalidate>
+          <div class="row">
+            <div class="field">
+              <label for="f-jmeno">Jméno a příjmení *</label>
+              <input type="text" id="f-jmeno" name="jmeno" placeholder="Jan Novák" required />
+            </div>
+            <div class="field">
+              <label for="f-telefon">Telefon</label>
+              <input type="tel" id="f-telefon" name="telefon" placeholder="+420 777 000 000" />
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="f-email">E-mail *</label>
+            <input type="email" id="f-email" name="email" placeholder="vas@email.cz" required />
+          </div>
+
+          <div class="field">
+            <label for="f-sluzba">Typ služby</label>
+            <select id="f-sluzba" name="sluzba">
+              <option value="">Vyberte službu…</option>
+              <option value="autodoprava">Autodoprava</option>
+              <option value="jerab">Jeřábnické práce</option>
+              <option value="zemni">Zemní práce</option>
+              <option value="kombinace">Kombinace služeb</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label for="f-zprava">Popis zakázky *</label>
+            <textarea
+              id="f-zprava"
+              name="zprava"
+              rows="5"
+              placeholder="Stručně popište zakázku, termín a místo realizace…"
+              required
+            ></textarea>
+          </div>
+
+          <button type="submit" class="btn btn-primary submit-btn">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/>
+            </svg>
+            Odeslat poptávku
+          </button>
+
+          <p class="legal">Odesláním souhlasíte se zpracováním osobních údajů.</p>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .kontakt {
+    padding: clamp(60px,8vw,100px) 0;
+    background: var(--bg);
+  }
+  .section-header { margin-bottom: 52px; }
+
+  .inner {
+    display: grid;
+    grid-template-columns: 1fr 1.35fr;
+    gap: 56px;
+    align-items: start;
+  }
+
+  /* ---- Info col ---- */
+  .tel-card {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    background: var(--bg-3);
+    border: 1px solid var(--border);
+    border-left: 4px solid var(--accent);
+    padding: 18px 22px;
+    border-radius: var(--radius);
+    margin-bottom: 28px;
+    transition: background var(--transition);
+  }
+  .tel-card:hover { background: #1f1f1f; }
+  .tel-icon {
+    width: 48px; height: 48px;
+    background: rgba(245,166,35,0.12);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--accent);
+    flex-shrink: 0;
+  }
+  .info-lbl {
+    display: block;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: 3px;
+  }
+  .tel-num {
+    font-family: var(--ff-heading);
+    font-size: 1.7rem;
+    color: var(--white);
+    letter-spacing: 0.04em;
+  }
+
+  .info-list {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    margin-bottom: 26px;
+  }
+  .info-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+  }
+  .info-row svg { color: var(--accent); flex-shrink: 0; margin-top: 2px; }
+  .info-val {
+    font-size: 0.88rem;
+    color: var(--text);
+    line-height: 1.5;
+  }
+  a.link:hover { color: var(--accent); }
+
+  .map-wrap {
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    overflow: hidden;
+  }
+  .map-wrap iframe {
+    width: 100%; height: 210px;
+    display: block; border: none;
+    filter: grayscale(0.6) brightness(0.7);
+  }
+
+  /* ---- Form col ---- */
+  .form-col {
+    background: var(--bg-3);
+    border: 1px solid var(--border);
+    padding: 40px 36px;
+    border-radius: var(--radius);
+  }
+  .form-title {
+    font-size: 1.9rem;
+    color: var(--white);
+    text-transform: uppercase;
+    margin-bottom: 4px;
+  }
+  .form-sub {
+    font-size: 0.84rem;
+    color: var(--text-muted);
+    margin-bottom: 28px;
+  }
+
+  .row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+  }
+  .field { margin-bottom: 14px; }
+  .field label {
+    display: block;
+    font-size: 0.73rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: 6px;
+  }
+  .field input,
+  .field select,
+  .field textarea {
+    width: 100%;
+    background: var(--bg);
+    border: 1px solid var(--border-2);
+    color: var(--text);
+    font-family: var(--ff-body);
+    font-size: 0.88rem;
+    padding: 11px 13px;
+    border-radius: var(--radius);
+    outline: none;
+    transition: border-color var(--transition);
+    appearance: none;
+    -webkit-appearance: none;
+  }
+  .field select {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='11' height='7' viewBox='0 0 11 7'%3E%3Cpath d='M1 1l4.5 4.5L10 1' stroke='%23888' stroke-width='1.8' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 13px center;
+    padding-right: 36px;
+  }
+  .field input:focus,
+  .field select:focus,
+  .field textarea:focus { border-color: var(--accent); }
+  .field input::placeholder,
+  .field textarea::placeholder { color: var(--text-dim); }
+  .field textarea { resize: vertical; min-height: 120px; }
+
+  .submit-btn {
+    width: 100%;
+    justify-content: center;
+    margin-top: 6px;
+    padding: 16px;
+    font-size: 0.95rem;
+  }
+  .legal {
+    font-size: 0.72rem;
+    color: var(--text-dim);
+    text-align: center;
+    margin-top: 10px;
+  }
+
+  @media (max-width: 960px) {
+    .inner { grid-template-columns: 1fr; gap: 40px; }
+  }
+  @media (max-width: 560px) {
+    .row { grid-template-columns: 1fr; }
+    .form-col { padding: 28px 20px; }
+  }
+</style>

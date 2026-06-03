@@ -1,0 +1,138 @@
+---
+const vehicles = [
+  { name: 'Mobilní jeřáb',          specs: ['Nosnost: až 60 t', 'Dosah: až 40 m', 'Pro stavební montáže'] },
+  { name: 'Sklápěcí nákladní auto', specs: ['Objem korby: 10 m³', 'Nosnost: 14 t', 'Sypké materiály'] },
+  { name: 'Pásový bagr',            specs: ['Výkon: 130 kW', 'Hloubka kopání: 7 m', 'Zemní práce'] },
+  { name: 'Kolový bagr',            specs: ['Výkon: 90 kW', 'Přesun: 30 km/h', 'Flexibilní nasazení'] },
+  { name: 'Nákladní souprava',      specs: ['Celk. hmotnost: 40 t', 'Délka: 16,5 m', 'Přeprava techniky'] },
+  { name: 'Minirypadlo',            specs: ['Výkon: 25 kW', 'Šířka: 1,5 m', 'Stísněné prostory'] },
+];
+---
+
+<section id="technika" class="technika">
+  <div class="container">
+    <div class="section-header">
+      <p class="section-label">Vozový park</p>
+      <h2 class="section-title">NAŠE <span>TECHNIKA</span></h2>
+      <p class="intro">Moderní a pravidelně servisovaná technika pro zvládnutí i těch nejnáročnějších zakázek.</p>
+    </div>
+
+    <div class="grid">
+      {vehicles.map(v => (
+        <div class="card">
+          <div class="photo">
+            <!-- Sem doplňte <img src="/assets/images/technika/..." /> -->
+            <div class="placeholder" aria-label={`Foto – ${v.name}`}>
+              <svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" aria-hidden="true">
+                <rect x="3" y="3" width="18" height="18" rx="2"/>
+                <circle cx="8.5" cy="8.5" r="1.5"/>
+                <polyline points="21 15 16 10 5 21"/>
+              </svg>
+              <span>Foto brzy</span>
+            </div>
+          </div>
+          <div class="info">
+            <h3 class="name">{v.name}</h3>
+            <ul class="specs">
+              {v.specs.map(s => <li>{s}</li>)}
+            </ul>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .technika {
+    padding: clamp(60px,8vw,100px) 0;
+    background: var(--bg);
+  }
+
+  .section-header { margin-bottom: 52px; }
+  .intro {
+    max-width: 500px;
+    color: var(--text-muted);
+    font-size: 0.92rem;
+    margin-top: 14px;
+    line-height: 1.65;
+  }
+
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px;
+  }
+
+  .card {
+    background: var(--bg-3);
+    overflow: hidden;
+    transition: transform var(--transition);
+  }
+  .card:hover { transform: translateY(-4px); }
+
+  .photo {
+    aspect-ratio: 4/3;
+    background: #111;
+    overflow: hidden;
+  }
+  .photo img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+  }
+  .card:hover .photo img { transform: scale(1.05); }
+
+  .placeholder {
+    width: 100%; height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    color: var(--border-2);
+    font-size: 0.75rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+
+  .info {
+    padding: 20px 22px;
+    border-left: 3px solid transparent;
+    transition: border-color var(--transition);
+  }
+  .card:hover .info { border-left-color: var(--accent); }
+
+  .name {
+    font-size: 1.25rem;
+    color: var(--white);
+    text-transform: uppercase;
+    margin-bottom: 9px;
+  }
+
+  .specs {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+  .specs li {
+    font-size: 0.78rem;
+    color: var(--text-muted);
+    padding-left: 14px;
+    position: relative;
+  }
+  .specs li::before {
+    content: '›';
+    position: absolute;
+    left: 0;
+    color: var(--accent);
+    font-weight: 700;
+  }
+
+  @media (max-width: 900px) {
+    .grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 560px) {
+    .grid { grid-template-columns: 1fr; }
+  }
+</style>
