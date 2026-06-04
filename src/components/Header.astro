@@ -164,10 +164,26 @@ const navLinks = [
       background: rgba(13,13,13,0.98);
       border-bottom: 1px solid var(--border);
       padding: 16px 20px 24px;
-      transform: translateY(-110%);
-      transition: transform 0.3s ease;
+      /* Skrytí: opacity+visibility je spolehlivé — transform -110% nepokryje celý nav */
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+      transform: translateY(-6px);
+      transition:
+        opacity 0.22s ease,
+        transform 0.22s ease,
+        visibility 0s linear 0.22s;
     }
-    nav.open { transform: translateY(0); }
+    nav.open {
+      opacity: 1;
+      visibility: visible;
+      pointer-events: auto;
+      transform: translateY(0);
+      transition:
+        opacity 0.22s ease,
+        transform 0.22s ease,
+        visibility 0s;
+    }
     nav ul { flex-direction: column; gap: 2px; }
     nav a { padding: 11px 8px; font-size: 1rem; color: var(--text); }
     .header-cta { display: none; }
