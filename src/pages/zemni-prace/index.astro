@@ -1,0 +1,194 @@
+---
+import BaseLayout   from '../../layouts/BaseLayout.astro';
+import Header       from '../../components/Header.astro';
+import ServiceHero  from '../../components/ServiceHero.astro';
+import Kontakt      from '../../components/Kontakt.astro';
+import Footer       from '../../components/Footer.astro';
+
+const icon = `<svg viewBox="0 0 52 40" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+  <rect x="0" y="22" width="40" height="14" rx="2"/>
+  <rect x="10" y="12" width="18" height="13" rx="2"/>
+  <rect x="22" y="7" width="14" height="8" rx="2"/>
+  <rect x="32" y="2" width="5" height="14" rx="1.5"/>
+  <path d="M28 9 L36 5" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/>
+  <rect x="0" y="36" width="52" height="4" rx="2"/>
+</svg>`;
+
+const sluzby = [
+  { name: 'Výkopy základů',                desc: 'Výkopy pro základové desky, pasy a patky rodinných domů, průmyslových hal i bytových staveb.' },
+  { name: 'Inženýrské sítě',               desc: 'Výkopy pro vodovod, kanalizaci, elektro, plyn a sdělovací kabely — úzké rýhy i šachtové výkopy.' },
+  { name: 'Terénní úpravy',                desc: 'Srovnání terénu, odtěžení vrstev, vytváření spádů, příprava pláně pro zpevněné plochy.' },
+  { name: 'Demoliční práce',               desc: 'Bourání zpevněných ploch, stávajících základů, opěrných zdí a drobných objektů.' },
+  { name: 'Odstraňování a nakládání zeminy', desc: 'Nakládka výkopového materiálu na sklápěčky — spolupracujeme s naší autodopravou.' },
+  { name: 'Hutnění a zpevnění',            desc: 'Zhutnění podsypu, štěrkového lože nebo recyklátu pro zpevněné plochy a základové desky.' },
+];
+
+const postup = [
+  { n: '01', title: 'Průzkum',         text: 'Přijedeme na místo, posoudíme typ zeminy, přístupnost terénu a upřesníme rozsah prací.' },
+  { n: '02', title: 'Příprava',        text: 'Zajistíme vyjádření správců sítí, vytýčení inženýrských sítí a potřebná povolení.' },
+  { n: '03', title: 'Výkopové práce',  text: 'Provádíme práce podle projektové dokumentace nebo zaměření — přesně, bezpečně, bez škod.' },
+  { n: '04', title: 'Odvoz a úprava',  text: 'Zemina odváží naše sklápěčky, provádíme finální terénní úpravy a případné zhutnění.' },
+];
+
+const technika = [
+  { name: 'Pásový bagr',   specs: ['Výkon: 130 kW', 'Hloubka kopání: 7 m', 'Pro rozsáhlé výkopy a těžké zeminy'] },
+  { name: 'Kolový bagr',   specs: ['Výkon: 90 kW', 'Přesun: 30 km/h', 'Rychlé přesuny mezi staveništi'] },
+  { name: 'Minirypadlo',   specs: ['Výkon: 25 kW', 'Šířka: 1,5 m', 'Úzké rýhy, dvory, stísněné prostory'] },
+];
+---
+
+<BaseLayout
+  title="Zemní práce | Profi Jeřáby s.r.o."
+  description="Profesionální zemní práce — výkopy základů, terénní úpravy, inženýrské sítě, demolice. Moderní bagry pro každý typ zeminy v celé ČR."
+>
+  <Header />
+  <main>
+    <ServiceHero
+      title="ZEMNÍ"
+      accent="PRÁCE"
+      tagline="Výkopy, terénní úpravy a demolice"
+      desc="Provádíme výkopy základů, terénní úpravy a výkopy pro inženýrské sítě. Disponujeme pásovými bagry, kolovými bagry i minirypadly — zvládneme rozsáhlé staveniště i stísněné prostory."
+      icon={icon}
+    />
+
+    <!-- Co nabízíme -->
+    <section class="sekce bg-alt">
+      <div class="container">
+        <p class="section-label">Co provádíme</p>
+        <h2 class="section-title">ROZSAH <span>PRACÍ</span></h2>
+        <div class="dvoj">
+          <p class="dvoj-text">
+            Zemní práce jsou základem každé stavby. Kvalitně provedený výkop a správná
+            příprava pláně rozhodují o stabilitě celého díla. Proto k zemním pracím
+            přistupujeme zodpovědně — se správnou technikou, zkušenými operátory
+            a důkladným průzkumem podmínek na místě. Spolupracujeme s geodety,
+            statiky i projektanty.
+          </p>
+          <ul class="sluzby-list">
+            {sluzby.map(s => (
+              <li>
+                <div class="sl-dot" aria-hidden="true"></div>
+                <div>
+                  <strong>{s.name}</strong>
+                  <span>{s.desc}</span>
+                </div>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Jak pracujeme -->
+    <section class="sekce">
+      <div class="container">
+        <p class="section-label">Průběh zakázky</p>
+        <h2 class="section-title">JAK <span>PRACUJEME</span></h2>
+        <div class="postup-grid">
+          {postup.map(p => (
+            <div class="krok">
+              <span class="krok-n" aria-hidden="true">{p.n}</span>
+              <h3>{p.title}</h3>
+              <p>{p.text}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Technika -->
+    <section class="sekce bg-alt">
+      <div class="container">
+        <p class="section-label">Vozový park</p>
+        <h2 class="section-title">NAŠE <span>TECHNIKA</span></h2>
+        <div class="vozidla-grid">
+          {technika.map(v => (
+            <div class="vozidlo">
+              <div class="vozidlo-foto">
+                <div class="foto-placeholder" aria-hidden="true">
+                  <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
+                    <rect x="3" y="3" width="18" height="18" rx="2"/>
+                    <circle cx="8.5" cy="8.5" r="1.5"/>
+                    <polyline points="21 15 16 10 5 21"/>
+                  </svg>
+                </div>
+              </div>
+              <div class="vozidlo-info">
+                <h3>{v.name}</h3>
+                <ul>
+                  {v.specs.map(s => <li>{s}</li>)}
+                </ul>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <Kontakt />
+  </main>
+  <Footer />
+</BaseLayout>
+
+<style>
+  .sekce { padding: clamp(60px, 8vw, 100px) 0; }
+  .bg-alt { background: var(--bg-2); }
+
+  .dvoj {
+    display: grid;
+    grid-template-columns: 1fr 1.1fr;
+    gap: 56px;
+    margin-top: 40px;
+    align-items: start;
+  }
+  .dvoj-text { font-size: 0.96rem; color: var(--text-muted); line-height: 1.8; }
+
+  .sluzby-list { display: flex; flex-direction: column; gap: 18px; }
+  .sluzby-list li { display: flex; gap: 14px; align-items: flex-start; }
+  .sl-dot {
+    width: 8px; height: 8px;
+    background: var(--accent);
+    border-radius: 50%;
+    flex-shrink: 0;
+    margin-top: 6px;
+  }
+  .sluzby-list strong { display: block; font-size: 0.9rem; color: var(--white); margin-bottom: 2px; }
+  .sluzby-list span { font-size: 0.82rem; color: var(--text-muted); line-height: 1.5; }
+
+  .postup-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2px;
+    margin-top: 40px;
+  }
+  .krok {
+    background: var(--bg-3);
+    padding: 32px 28px;
+    border-top: 3px solid transparent;
+    transition: border-color var(--transition), background var(--transition);
+  }
+  .krok:hover { border-top-color: var(--accent); background: #1f1f1f; }
+  .krok-n { display: block; font-family: var(--ff-heading); font-size: 3.5rem; color: var(--border-2); line-height: 1; margin-bottom: 12px; }
+  .krok h3 { font-size: 1.4rem; color: var(--white); text-transform: uppercase; margin-bottom: 10px; }
+  .krok p { font-size: 0.84rem; color: var(--text-muted); line-height: 1.7; }
+
+  .vozidla-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; margin-top: 40px; }
+  .vozidlo { background: var(--bg-3); overflow: hidden; }
+  .vozidlo-foto { aspect-ratio: 4/3; background: #111; }
+  .foto-placeholder { width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; color: var(--border-2); }
+  .vozidlo-info { padding: 18px 20px; border-left: 3px solid var(--accent); }
+  .vozidlo-info h3 { font-size: 1.15rem; color: var(--white); text-transform: uppercase; margin-bottom: 8px; }
+  .vozidlo-info ul { display: flex; flex-direction: column; gap: 3px; }
+  .vozidlo-info li { font-size: 0.78rem; color: var(--text-muted); padding-left: 12px; position: relative; }
+  .vozidlo-info li::before { content: '›'; position: absolute; left: 0; color: var(--accent); font-weight: 700; }
+
+  @media (max-width: 900px) {
+    .dvoj { grid-template-columns: 1fr; gap: 32px; }
+    .postup-grid { grid-template-columns: repeat(2, 1fr); }
+    .vozidla-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 560px) {
+    .postup-grid { grid-template-columns: 1fr; }
+    .vozidla-grid { grid-template-columns: 1fr; }
+  }
+</style>

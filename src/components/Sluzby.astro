@@ -1,7 +1,9 @@
 ---
+const base = import.meta.env.BASE_URL;
 const services = [
   {
     num: '01',
+    url: `${base}autodoprava/`,
     title: 'Autodoprava',
     tagline: 'Rychlá a spolehlivá přeprava',
     desc: 'Přeprava sypkých materiálů, zeminy, štěrku, písku a stavebního odpadu. Moderní sklápěčky a nákladní vozidla pro každý objem zakázky.',
@@ -16,6 +18,7 @@ const services = [
   },
   {
     num: '02',
+    url: `${base}jerabnicke-prace/`,
     title: 'Jeřábnické práce',
     tagline: 'Přesné zdvíhání těžkých břemen',
     desc: 'Montáže ocelových konstrukcí, zdvíhání a přemísťování strojů, nakládka nadrozměrných předmětů. Mobilní jeřáby s vysokou nosností.',
@@ -32,6 +35,7 @@ const services = [
   },
   {
     num: '03',
+    url: `${base}zemni-prace/`,
     title: 'Zemní práce',
     tagline: 'Výkopy, terénní úpravy, demolice',
     desc: 'Výkopy základů, terénní úpravy pozemků, odstraňování zeminy, demoliční práce. Moderní bagry a dozery pro všechny typy zemin.',
@@ -75,12 +79,15 @@ const services = [
               </li>
             ))}
           </ul>
-          <a href="#kontakt" class="card-cta">
-            Poptat službu
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
-              <path d="M5 12h14M12 5l7 7-7 7"/>
-            </svg>
-          </a>
+          <div class="card-links">
+            <a href={s.url} class="card-cta card-cta--more">
+              Více o službě
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+                <path d="M5 12h14M12 5l7 7-7 7"/>
+              </svg>
+            </a>
+            <a href="#kontakt" class="card-cta card-cta--poptat">Poptat</a>
+          </div>
         </article>
       ))}
     </div>
@@ -184,6 +191,11 @@ const services = [
   }
   .features svg { color: var(--accent); flex-shrink: 0; }
 
+  .card-links {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
   .card-cta {
     display: inline-flex;
     align-items: center;
@@ -192,10 +204,18 @@ const services = [
     font-weight: 700;
     letter-spacing: 0.06em;
     text-transform: uppercase;
-    color: var(--accent);
-    transition: gap var(--transition);
+    transition: gap var(--transition), color var(--transition);
   }
-  .card-cta:hover { gap: 11px; }
+  .card-cta--more {
+    color: var(--accent);
+  }
+  .card-cta--more:hover { gap: 11px; }
+  .card-cta--poptat {
+    color: var(--text-muted);
+    border-bottom: 1px solid var(--border-2);
+    padding-bottom: 1px;
+  }
+  .card-cta--poptat:hover { color: var(--white); border-color: var(--white); }
 
   @media (max-width: 900px) {
     .grid { grid-template-columns: 1fr; }

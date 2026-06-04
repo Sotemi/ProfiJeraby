@@ -1,0 +1,119 @@
+---
+interface Props {
+  title: string;
+  accent: string;
+  tagline: string;
+  desc: string;
+  icon: string;
+}
+const { title, accent, tagline, desc, icon } = Astro.props;
+const base = import.meta.env.BASE_URL;
+---
+
+<section class="svc-hero">
+  <div class="container">
+    <nav class="bc" aria-label="Drobečková navigace">
+      <a href={base}>Úvod</a>
+      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+        <path d="M9 18l6-6-6-6"/>
+      </svg>
+      <a href={`${base}#sluzby`}>Služby</a>
+      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+        <path d="M9 18l6-6-6-6"/>
+      </svg>
+      <span>{title} {accent}</span>
+    </nav>
+
+    <div class="body">
+      <div class="icon-wrap" aria-hidden="true" set:html={icon}></div>
+      <h1>{title}<br /><em>{accent}</em></h1>
+      <p class="tagline">{tagline}</p>
+      <p class="desc">{desc}</p>
+      <div class="actions">
+        <a href="#kontakt" class="btn btn-primary btn-lg">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/>
+          </svg>
+          Poptat službu
+        </a>
+        <a href={base} class="btn btn-outline btn-lg">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+            <path d="M19 12H5M12 19l-7-7 7-7"/>
+          </svg>
+          Zpět na úvod
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .svc-hero {
+    background: var(--bg);
+    padding: 108px 0 72px;
+    position: relative;
+  }
+  .svc-hero::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0; height: 3px;
+    background: linear-gradient(90deg, var(--accent) 0%, transparent 55%);
+  }
+
+  /* Breadcrumb */
+  .bc {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.78rem;
+    color: var(--text-dim);
+    margin-bottom: 36px;
+  }
+  .bc a { color: var(--text-muted); transition: color var(--transition); }
+  .bc a:hover { color: var(--accent); }
+  .bc svg { flex-shrink: 0; }
+
+  /* Body */
+  .icon-wrap {
+    width: 64px; height: 64px;
+    color: var(--accent);
+    margin-bottom: 20px;
+  }
+  .icon-wrap svg { width: 100%; height: 100%; }
+
+  h1 {
+    font-size: clamp(3rem, 7vw, 6.5rem);
+    color: var(--white);
+    text-transform: uppercase;
+    line-height: 0.88;
+    margin-bottom: 20px;
+  }
+  h1 em { color: var(--accent); font-style: normal; }
+
+  .tagline {
+    font-family: var(--ff-heading);
+    font-size: clamp(1.1rem, 2vw, 1.5rem);
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 14px;
+  }
+
+  .desc {
+    max-width: 580px;
+    font-size: 0.97rem;
+    color: var(--text-muted);
+    line-height: 1.75;
+    margin-bottom: 36px;
+  }
+
+  .actions {
+    display: flex;
+    gap: 14px;
+    flex-wrap: wrap;
+  }
+
+  @media (max-width: 600px) {
+    .svc-hero { padding: 96px 0 56px; }
+  }
+</style>
